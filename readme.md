@@ -27,12 +27,11 @@ Esta plataforma marketplace está diseñada para convertirse en un hub centraliz
 
 ### **0.4. URL del proyecto:**
 
-> Puede ser pública o privada, en cuyo caso deberás compartir los accesos de manera segura. Puedes enviarlos a [alvaro@lidr.co](mailto:alvaro@lidr.co) usando algún servicio como [onetimesecret](https://onetimesecret.com/).
+Url del proyecto: [ArtiMark](https://artimark.onrender.com)
 
 ### 0.5. URL o archivo comprimido del repositorio
 
-> Puedes tenerlo alojado en público o en privado, en cuyo caso deberás compartir los accesos de manera segura. Puedes enviarlos a [alvaro@lidr.co](mailto:alvaro@lidr.co) usando algún servicio como [onetimesecret](https://onetimesecret.com/). También puedes compartir por correo un archivo zip con el contenido
-
+Url del repositorio: [ArtiMark](https://github.com/GermanBejarano/ArtiMark)
 
 ---
 
@@ -64,6 +63,25 @@ Desarrollar y lanzar una versión mínima viable (MVP) del marketplace que permi
   
 4. **Feedback de Usuarios**:
    - Establecer métodos para que los usuarios proporcionen feedback sobre su experiencia.
+
+### **1.3. Diseño y experiencia de usuario:**
+
+- **Login**
+ ![Login](./assets/img/LoginPage.png)
+
+- **Registro**   
+ ![Registro](./assets/img/SignUpPage.png)
+
+- **Carrito de compras**
+ ![Carrito de compras](./assets/img/Cart.png)
+
+- **Productos**
+ ![Productos](./assets/img/Products.png)
+
+
+### **1.4. Instrucciones de instalación:**
+
+El proyecto se divide en dos partes, el **backend** y el **frontend**, cada uno contiene un archivo README.md con instrucciones para ejecutar el proyecto de manera local.
 
 ---
 
@@ -134,28 +152,78 @@ Para el proyecto **ArtiMark** utilizara una arquitectura de microservicios, esta
 1. **Cliente - React App**
    - **Tecnología:** React.js
    - **Descripción:** Interfaz de usuario desarrollada en React, un framework de JavaScript para construir interfaces de usuario dinámicas y reactivas. El cliente interactúa con los servicios backend a través de solicitudes HTTP/HTTPS.
-  
-2. **AWS API Gateway**
-   - **Tecnología:** AWS API Gateway
-   - **Descripción:** Un servicio gestionado que facilita la creación, publicación, mantenimiento, monitoreo y protección de APIs a cualquier escala. Actúa como el punto de entrada para todas las solicitudes entrantes y se encarga del enrutamiento, la autenticación y la autorización.
 
-3. **Servicios de Backend - Node.js**
-   - **Tecnología:** Node.js
-   - **Descripción:** Cada microservicio se desplegara en una instancia EC2, los microservicios se desarrollan en Node.js, un entorno de ejecución de JavaScript del lado del servidor que es ligero y eficiente, ideal para construir microservicios debido a su naturaleza asincrónica y orientada a eventos.
+2. **Servicios de Backend - Node.js**
+   - **Tecnología:** Node.js - Nest.js
+   - **Descripción:** El backend está desarrollado como un monolito utilizando Nest.js, un framework progresivo de Node.js para construir aplicaciones del lado del servidor eficientes y escalables. Nest.js aprovecha TypeScript y sigue principios de arquitectura modular, lo que facilita la organización del código y la implementación de patrones de diseño robustos. El servidor se despliega en una única instancia, en un servicio como Render, proporcionando una API RESTful para la comunicación con el frontend.
 
-4. **Amazon RDS PostgreSQL**
-   - **Tecnología:** Amazon RDS para PostgreSQL
-   - **Descripción:** Un servicio de base de datos relacional que facilita la configuración, operación y escalado de bases de datos PostgreSQL en la nube, ofreciendo escalabilidad, alta disponibilidad y seguridad.
+> Nota: Aunque la idea era tener un backend de microservicios, al no tener conocimientos previos de Nest.js y Render, se decidió desarrollar todo el backend como un monolito, ya que es más sencillo y rápido de desarrollar y desplegar.
 
-5. **Amazon S3**
-   - **Tecnología:** Amazon Simple Storage Service (S3)
-   - **Descripción:** Servicio de almacenamiento de objetos que ofrece escalabilidad, seguridad de datos, alta disponibilidad y rendimiento. En este proyecto, se utiliza para almacenar imágenes y otros archivos estáticos.
 
-6. **Amazon CloudWatch**
-   - **Tecnología:** Amazon CloudWatch
-   - **Descripción:** Proporciona datos y análisis observables para monitorear aplicaciones, responder a cambios en el sistema y optimizar la eficiencia de la aplicación. Utilizado para monitorear y registrar métricas y logs de los servicios y contenedores.
+### **2.3. Descripción de alto nivel del proyecto y estructura de ficheros**
 
+El proyecto ArtiMark sigue una estructura de monorepo, dividida en frontend y backend, cada uno con su propia arquitectura y patrones de diseño. A continuación, se detalla la estructura general del proyecto:
+
+```
+/backend
+  /src
+    /config        # Configuraciones de la aplicación, como conexión a la base de datos
+    /controllers   # Controladores para manejar las solicitudes entrantes
+    /services      # Servicios que contienen la lógica de negocio
+    /modules       # Módulos de la aplicación, cada uno puede tener sus propios controladores y servicios
+    /entities      # Entidades que representan tablas en la base de datos
+    /middlewares   # Middlewares para manejar la lógica que se ejecuta entre las solicitudes
+    /guards        # Guards para manejar la autorización y autenticación
+    /decorators    # Decoradores personalizados
+    /interfaces    # Interfaces para definir estructuras de datos
+    /exceptions    # Clases de excepciones personalizadas
+  /test           # Pruebas unitarias y de integración
+  .env            # Variables de entorno
+  .env.example    # Ejemplo de archivo de variables de entorno
+  package.json    # Dependencias y scripts de npm
+  tsconfig.json   # Configuración de TypeScript
+  README.md       # Instrucciones para ejecutar y desplegar el backend
+```
+
+```
+/frontend
+  /public
+    index.html       # Página HTML principal
+    favicon.ico      # Icono de la aplicación
+    manifest.json    # Metadata de la aplicación
+  /src
+    /components      # Componentes React reutilizables
+    /containers      # Componentes React que contienen lógica y estado
+    /hooks           # Hooks personalizados de React
+    /styles          # Archivos CSS o SASS
+    /assets          # Recursos estáticos como imágenes y fuentes
+    /utils           # Funciones de utilidad
+    /services        # Servicios para manejar la lógica de negocio y las llamadas a la API
+    /contexts        # Contextos de React para el manejo global del estado
+    App.js           # Componente principal de React
+    index.js         # Punto de entrada de la aplicación React
+  /tests            # Pruebas de los componentes y lógica
+  package.json      # Dependencias y scripts de npm
+  README.md         # Instrucciones para ejecutar y desplegar el frontend
+```
+
+
+### **2.5. Seguridad**
+
+1. **Autenticación y Gestión de Sesiones**
+   
+   - Backend: Se utiliza autenticación basada en tokens para manejar las sesiones de los usuarios. Esto implica que cada vez que un usuario se autentica correctamente, el servidor genera un token (JWT - JSON Web Token) que el cliente debe enviar en las cabeceras de sus solicitudes subsiguientes para acceder a los recursos protegidos.
+   - Frontend: El token de autenticación se almacena de manera segura en el almacenamiento local y se adjunta automáticamente a todas las solicitudes subsiguientes al backend.
+
+2. **Encriptación de Contraseñas**
+   - Backend: Las contraseñas de los usuarios se almacenan en la base de datos en forma cifrada. Esto se logra utilizando algoritmos de hash seguros como bcrypt, que además incorporan un "salt" para cada contraseña, haciendo mucho más difícil cualquier intento de descifrado por fuerza bruta.
+
+
+3. **Validación de Entradas del Usuario**
+   - Backend: Se validan todas las entradas del usuario para prevenir la inyección de código malintencionado.
+   - 
 ---
+
 
 ## 3. Modelo de Datos
 
@@ -848,3 +916,6 @@ components:
 
 ---
 
+## 7. Pull Requests
+
+> Nota: Se tuvo un inconveniente con los repositorios de GitHub, estaba manejando el frontend, el backend y la documentacion en repositorio separados, pero me di cuenta tarde que era mejor tener todo en un solo repositorio, pero al intentar unirlos como submodulos no funcionaba, intente otras cosas pero no tuve exito, me quede sin tiempo y me toco crear un repositorio nuevo y copiar todo el contenido al nuevo repositorio, y no pude conservar los commits iniciales y los pull request.
