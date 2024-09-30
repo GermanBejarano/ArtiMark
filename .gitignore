@@ -52,4 +52,14 @@ pids
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 /backend/node_modules
+/backend/build
+/backend/dist
+
 /frontend/node_modules
+/frontend/build
+/frontend/public
+/frontend/src/assets/images
+/frontend/src/assets/images/products
+/frontend/src/assets/images/users
+/frontend/src/assets/images/users/profile
+/frontend/src/assets/images/users/profile/default.png
