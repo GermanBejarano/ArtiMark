@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Flex, Image, useBreakpointValue } from '@chakra-ui/react';
 import loginImage from '../assets/img/Login_image.jpg';
 import { LoginForm, SignUpForm } from '../components/auth';
+
 import '../styles/LoginPage.css';
 
 function LoginPage() {
