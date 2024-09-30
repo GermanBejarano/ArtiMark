@@ -1,0 +1,1 @@
+.form-move-right{transform:translate(100%);transition:transform .5s ease-in-out}.form-move-left{transform:translate(-100%);transition:transform .5s ease-in-out}.image-move-left{transform:translate(-95%);transition:transform .5s ease-in-out;z-index:1}.image-stay{transform:translate(0);transition:transform .5s ease-in-out;z-index:1}

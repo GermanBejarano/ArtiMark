@@ -16,7 +16,7 @@ async function bootstrap() {
     }) 
   );
   app.enableCors({
-    origin: 'http://localhost:5173', // Asegúrate de cambiar esto al dominio correcto en producción
+    origin: process.env.FRONTEND_URL,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     allowedHeaders: 'Content-Type, Accept, Authorization',
   });

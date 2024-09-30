@@ -19,6 +19,9 @@ import { OrdersModule } from './orders/orders.module';
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
       synchronize: true,
+      ssl: {
+        rejectUnauthorized: false
+      } 
     }),
 
     CommonModule,
