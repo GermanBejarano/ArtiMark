@@ -1,0 +1,21 @@
+.form-move-right {
+    transform: translateX(100%); /* Asegúrate de que se mueva hacia la derecha */
+    transition: transform 0.5s ease-in-out;
+}
+
+.form-move-left {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.image-move-left {
+    transform: translateX(-95%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 1; 
+}
+
+.image-stay {
+    transform: translateX(0%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 1;
+}
