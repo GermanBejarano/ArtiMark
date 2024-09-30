@@ -15,7 +15,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
 
     const handleLogout = () => {
         logout();
-        navigate('/login');
+        navigate('/');
     };
 
     const handleProducts = () => {

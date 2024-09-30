@@ -3,7 +3,7 @@ import Header from './Header';
 
 function HeaderController() {
   const location = useLocation();
-  const showHeader = location.pathname !== '/login';
+  const showHeader = location.pathname !== '/';
 
   return showHeader ? <Header /> : null;
 }

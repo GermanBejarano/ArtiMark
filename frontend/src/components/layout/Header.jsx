@@ -5,7 +5,7 @@ function Header() {
   const navigate = useNavigate();
 
   const handleLoginRedirect = () => {
-    navigate('/login');
+    navigate('/');
   };
 
   return (
